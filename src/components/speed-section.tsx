@@ -7,7 +7,7 @@ export type SpeedSectionProps = {
 };
 
 export const SpeedSection = ({ speed }: SpeedSectionProps) => {
-  const speedKmH = isNil(speed) ? '--' : (speed * 3.6).toLocaleString();
+  const speedKmH = isNil(speed) ? '--' : Math.round((speed * 3.6)).toLocaleString();
 
   return (
     <section className="flex flex-col items-center py-6 text-accent">
