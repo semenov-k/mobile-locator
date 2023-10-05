@@ -1,5 +1,6 @@
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { isNil } from 'ramda';
 
 export type AltitudeSectionProps = {
   altitude: number | null;
@@ -16,7 +17,7 @@ export const AltitudeSection = ({ altitude, accuracy }: AltitudeSectionProps) =>
       <div className="flex flex-col items-center">
         <div className="flex items-baseline gap-2 font-semibold">
           <span className="text-xxl">{altitude?.toLocaleString() ?? '--'}</span>
-          <span className="text-l">{altitude && 'm'}</span>
+          <span className="text-l">{!isNil(altitude) && 'm'}</span>
         </div>
         <span className="text-s text-secondary">
           {altitude && accuracy && `Accuracy ±${accuracy.toLocaleString()} m`}
